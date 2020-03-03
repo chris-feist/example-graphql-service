@@ -22,3 +22,12 @@ functions:
           path: /graphql
           method: post
           cors: true
+
+  playground:
+    handler: src/graphQL/index.playgroundHandler
+    events:
+      - http:
+          path: /playground
+          method: get
+          cors: true
+          # TODO: Consider securing this unless your API is public
