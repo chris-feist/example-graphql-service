@@ -15,3 +15,10 @@ provider:
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1 # Use http keep-alive for AWS connections
 
 functions:
+  graphQl:
+    handler: src/graphQL/index.graphQlHandler
+    events:
+      - http:
+          path: /graphql
+          method: post
+          cors: true
