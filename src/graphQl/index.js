@@ -1,4 +1,5 @@
 import { ApolloServer } from 'apollo-server-lambda';
+import lambdaPlayground from 'graphql-playground-middleware-lambda';
 
 import schema from './schema';
 
@@ -15,4 +16,8 @@ export const graphQlHandler = server.createHandler({
     origin: '*',
     credentials: true,
   },
+});
+
+export const playgroundHandler = lambdaPlayground({
+  endpoint: `/${process.env.STAGE}/graphql`,
 });
